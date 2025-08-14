@@ -1,0 +1,11 @@
+Lazy initialization = Create an object only when you first use it, not when you declare it.
+Useful if object creation is slow or uses a lot of memory.
+
+Example:
+
+```kotlin
+val user2 by lazy { User("First", "Last", 0) }
+```
+
+* Object isn’t created until you access `user2` in code.
+* Saves resources if it might never be used.
