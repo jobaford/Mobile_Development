@@ -1,0 +1,27 @@
+**Enum classes** = special classes for a **fixed set of constant values** that can also have **properties** and **functions**.
+
+**Example:**
+
+```kotlin
+enum class Direction(val distance: Int) {
+    NORTH(10), SOUTH(20), EAST(50), WEST(40);
+
+    fun printData() {
+        println("Direction: $name, Distance: $distance")
+    }
+}
+```
+
+* Use with `when`:
+
+```kotlin
+val dir = Direction.EAST
+when (dir) {
+    Direction.EAST -> println("Go East")
+    Direction.WEST -> println("Go West")
+    Direction.NORTH -> println("Go North")
+    Direction.SOUTH -> println("Go South")
+}
+```
+
+* You can loop with `Direction.values()` and get from string with `Direction.valueOf("EAST")`.
