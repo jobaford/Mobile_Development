@@ -1,0 +1,44 @@
+Inheritance in Kotlin = **reusing code from one class in another**.
+You make a *base (parent) class* with common properties & functions, then *child classes* extend it to avoid duplicate code.
+You can also **override** base functions to give child classes their own behavior.
+
+**Example:**
+
+```kotlin
+open class Vehicle(val name: String, val color: String) {
+    open fun move() = println("$name is moving")
+    fun stop() = println("$name has stopped")
+}
+
+class Car(name: String, color: String, val engines: Int, val doors: Int) :
+    Vehicle(name, color)
+
+class Plane(name: String, color: String, val engines: Int, val doors: Int) :
+    Vehicle(name, color) {
+    override fun move() {
+        println("The plane is flying")
+        super.move()
+    }
+}
+
+fun main() {
+    val car = Car("BMW", "Red", 1, 4)
+    val plane = Plane("Boeing", "White", 4, 4)
+
+    car.move()
+    car.stop()
+
+    plane.move()
+    plane.stop()
+}
+```
+
+**Output:**
+
+```
+BMW is moving
+BMW has stopped
+The plane is flying
+Boeing is moving
+Boeing has stopped
+```
