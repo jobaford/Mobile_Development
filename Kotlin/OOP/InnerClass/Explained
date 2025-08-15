@@ -1,0 +1,17 @@
+**Inner classes** = classes defined **inside another class** when they are closely related.
+They can access the outer class’s properties and methods.
+
+**Example:**
+
+```kotlin
+class ListView(val items: Array<String>) {
+    inner class ListViewItem {
+        fun displayItem(position: Int) {
+            println(items[position]) // can use outer class's 'items'
+        }
+    }
+}
+
+val listView = ListView(arrayOf("Name1", "Name2", "Name3", "Name4"))
+listView.ListViewItem().displayItem(2) // prints "Name3"
+```
