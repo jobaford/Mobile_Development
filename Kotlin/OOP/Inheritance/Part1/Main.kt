@@ -36,3 +36,10 @@ class Plane(name: String, color: String, val engines: Int, val doors: Int): Vegi
         println("The plane is flying")
     }
 }
+
+//output:
+// BMW is moving
+// BMW has stopped
+// The plane is flying
+// Boeing is moving
+// Boeing has stopped
