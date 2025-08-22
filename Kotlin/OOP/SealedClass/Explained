@@ -1,0 +1,43 @@
+Here’s a **super short and simple explanation** of your text:
+
+---
+
+**Sealed Classes vs Enums in Kotlin (Simple Version):**
+
+* **Enums** are good for a fixed set of values (like `Success` or `Error`).
+
+* **Problem:** Enums cannot hold extra info (like an exception message).
+
+* **Sealed Classes** solve this:
+
+  * You define a `sealed class Result`.
+  * You can have subclasses (`Success`, `Error`, `Progress`) with extra properties.
+  * Compiler knows all possible subclasses → `when` statements must cover all cases (exhaustive).
+  * IDE can auto-generate all branches for you.
+  * You can have nested subclasses (like `RecoverableError` and `NonRecoverableError`) with their own properties.
+
+**Key Benefits:**
+
+1. Can store extra data in subclasses.
+2. Compiler helps ensure all cases are handled.
+3. More flexible and powerful than enums.
+
+**Example Use:**
+
+```kotlin
+sealed class Result(val message: String)
+
+class Success(message: String) : Result(message)
+class Error(message: String) : Result(message)
+class Progress(message: String) : Result(message)
+
+fun getData(result: Result) {
+    when(result) {
+        is Success -> println(result.message)
+        is Error -> println(result.message)
+        is Progress -> println(result.message)
+    }
+}
+```
+
+✅ Now `when` is exhaustive, and each type can carry extra info.
