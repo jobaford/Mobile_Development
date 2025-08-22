@@ -1,0 +1,37 @@
+**Abstract Classes in Kotlin (Simple Version):**
+
+* **What they are:** Classes meant to be inherited, not instantiated. Use `abstract` keyword.
+* **Like interfaces:** You can declare functions without a body (abstract functions).
+* **Difference from interfaces:**
+
+  1. Can have properties with values.
+  2. Can provide some code, not just function names.
+  3. Can only inherit **one** abstract class, but implement many interfaces.
+* **How it works:**
+
+  * A class inherits an abstract class using `:`.
+  * Must implement all abstract functions in the subclass.
+* **Use cases:**
+
+  * When you want a blueprint with some properties and functions that must be implemented.
+  * Often used in APIs (e.g., database operations) or event handling.
+
+**Example:**
+
+```kotlin
+abstract class Vehicle {
+    val type = "Car"
+    abstract fun start()
+    abstract fun stop()
+}
+
+class Car : Vehicle() {
+    override fun start() { println("Car started") }
+    override fun stop() { println("Car stopped") }
+}
+
+val myCar = Car()
+myCar.start() // prints "Car started"
+```
+
+✅ Abstract classes: blueprint with properties + functions that must be implemented.
