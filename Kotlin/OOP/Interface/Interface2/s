@@ -1,1 +1,31 @@
+* **Interface** = contract (defines **what** must be done, not **how**).
+* Cannot be instantiated (no objects).
+* Classes that implement it **must override its functions** with their own code.
+
+**Example:**
+
+```kotlin
+interface Engine {
+    fun startEngine()
+}
+
+class Car(val name: String) : Engine {
+    override fun startEngine() = println("$name car is starting the engine")
+}
+
+class Truck(val name: String) : Engine {
+    override fun startEngine() = println("$name truck is starting the engine")
+}
+
+class Plane(val name: String) : Engine {
+    override fun startEngine() = println("$name plane is starting the engine")
+}
+
+class Tesla(val name: String) : Engine {
+    override fun startEngine() = println("$name Tesla is starting the engine")
+}
+```
+
+👉 All classes **share the same function name** (`startEngine`) but each provides **different behavior**.
+
 
