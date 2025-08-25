@@ -1,0 +1,45 @@
+* **Interface** = says **what** a class must do, but not **how**.
+* Classes that implement the interface must provide their own code.
+* Example: all vehicles must *startEngine()*, but each one does it differently.
+
+**Code example:**
+
+```kotlin
+interface Engine {
+    fun startEngine()
+}
+
+class Car(val name: String) : Engine {
+    override fun startEngine() = println("$name car is starting the engine")
+}
+
+class Truck(val name: String) : Engine {
+    override fun startEngine() = println("$name truck is starting the engine")
+}
+
+class Plane(val name: String) : Engine {
+    override fun startEngine() = println("$name plane is starting the engine")
+}
+
+fun main() {
+    val car = Car("BMW")
+    val truck = Truck("Volvo")
+    val plane = Plane("Boeing")
+
+    car.startEngine()
+    truck.startEngine()
+    plane.startEngine()
+}
+```
+
+**Output:**
+
+```
+BMW car is starting the engine
+Volvo truck is starting the engine
+Boeing plane is starting the engine
+```
+
+👉 Interfaces = *common behavior contract* (they say "must have this function").
+
+
