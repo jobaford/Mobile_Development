@@ -1,0 +1,36 @@
+* **Problem**: Interfaces can’t be instantiated directly. If you want each button to have its own custom `onClick`, you can’t reuse the same class.
+* **Solution**: Use **object expression** (aka anonymous class) → lets you create & implement an interface **on the spot** for each object.
+
+**Example:**
+
+```kotlin
+interface OnClickListener {
+    fun onClick()
+}
+
+class Button(val text: String, val id: Int, val onClickListener: OnClickListener)
+
+fun main() {
+    val loginButton = Button("Login", 1, object : OnClickListener {
+        override fun onClick() = println("Login clicked")
+    })
+
+    val signUpButton = Button("SignUp", 2, object : OnClickListener {
+        override fun onClick() = println("SignUp clicked")
+    })
+
+    loginButton.onClickListener.onClick()
+    signUpButton.onClickListener.onClick()
+}
+```
+
+**Output:**
+
+```
+Login clicked
+SignUp clicked
+```
+
+👉 **Object expression** = quick way to give each object its **own unique behavior** without writing a separate class.
+
+
