@@ -1,0 +1,65 @@
+### What is delegation?
+
+* **Delegation = giving a task to another class to handle.**
+* Unlike inheritance (can only extend *one* class), with delegation you can plug in **multiple implementations**.
+
+### Example – Class delegation
+
+```kotlin
+interface A { fun print() }
+interface B { fun print2() }
+
+class FirstDelegate : A { override fun print() = println("From A") }
+class SecondDelegate : B { override fun print2() = println("From B") }
+
+class Up(a: A, b: B) : A by a, B by b
+
+fun main() {
+    val obj = Up(FirstDelegate(), SecondDelegate())
+    obj.print()   // From A
+    obj.print2()  // From B
+}
+```
+
+👉 `Up` doesn’t implement functions itself — it **delegates** to `FirstDelegate` and `SecondDelegate`.
+
+---
+
+### Example – Property delegation
+
+```kotlin
+import kotlin.properties.ReadWriteProperty
+import kotlin.reflect.KProperty
+
+class FormatDelegate : ReadWriteProperty<Any?, String> {
+    private var value = ""
+    override fun getValue(thisRef: Any?, property: KProperty<*>) = value.uppercase()
+    override fun setValue(thisRef: Any?, property: KProperty<*>, value: String) {
+        this.value = value.lowercase()
+    }
+}
+
+class User {
+    var firstName: String by FormatDelegate()
+    var lastName: String by FormatDelegate()
+}
+
+fun main() {
+    val user = User()
+    user.firstName = "Alex"
+    user.lastName = "Dobinka"
+    println(user.firstName) // ALEX
+    println(user.lastName)  // DOBINKA
+}
+```
+
+👉 Property delegation lets you **customize getter/setter behavior** in one place and reuse it.
+
+---
+
+✅ **In short**:
+
+* **Class delegation** = reuse behavior from other classes without multiple inheritance.
+* **Property delegation** = let another class handle how values are stored/retrieved.
+
+Want me to also make a **1-line analogy** to remember delegation super easily?
