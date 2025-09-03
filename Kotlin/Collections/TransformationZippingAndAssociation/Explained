@@ -1,0 +1,74 @@
+### **Zipping**
+
+👉 Combines two lists **by position** into pairs.
+
+```kotlin
+val colors = listOf("Red", "Brown", "Grey")
+val animals = listOf("Fox", "Bear", "Wolf")
+
+println(colors.zip(animals))  
+// [(Red, Fox), (Brown, Bear), (Grey, Wolf)]
+```
+
+You can also transform while zipping:
+
+```kotlin
+println(colors.zip(animals) { c, a -> "The $a is $c" })
+// The Fox is Red, The Bear is Brown, The Wolf is Grey
+```
+
+---
+
+### **Unzipping**
+
+👉 Splits pairs back into two lists.
+
+```kotlin
+val pairs = listOf(1 to "One", 2 to "Two", 3 to "Three")
+println(pairs.unzip())  
+// ([1, 2, 3], [One, Two, Three])
+```
+
+---
+
+### **AssociateWith**
+
+👉 Creates a **map**, where list items are keys and values come from a rule.
+
+```kotlin
+val nums = listOf("one", "two", "three", "four")
+println(nums.associateWith { it.length })
+// {one=3, two=3, three=5, four=4}
+```
+
+---
+
+### **AssociateBy**
+
+👉 Keys come from a rule, values are the list items.
+
+```kotlin
+println(nums.associateBy { it.first().uppercase() })
+// {O=one, T=three, F=four}
+```
+
+👉 Can also transform both keys and values:
+
+```kotlin
+println(nums.associateBy(
+    keySelector = { it.first().uppercase() },
+    valueTransform = { it.length }
+))
+// {O=3, T=5, F=4}
+```
+
+---
+
+✅ **In short:**
+
+* `zip` = pair up lists
+* `unzip` = split pairs
+* `associateWith` = list items → keys, computed values
+* `associateBy` = computed keys → list items (or transformed values)
+
+Want me to also do the same **short version** for **flatten** next?
