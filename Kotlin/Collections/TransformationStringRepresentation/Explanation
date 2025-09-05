@@ -1,0 +1,24 @@
+* `joinToString()` → makes a **string** from a collection (you can add separators, prefix, postfix, limit, etc.).
+* `joinTo()` → does the same, but writes the result into another object (like a `StringBuffer`).
+
+### Example:
+
+```kotlin
+val numbers = listOf("one", "two", "three", "four")
+
+println(numbers.joinToString())  
+// one, two, three, four
+
+println(numbers.joinToString(separator = " - ", prefix = "Start: ", postfix = " :End"))  
+// Start: one - two - three - four :End
+
+println((1..100).toList().joinToString(limit = 5, truncated = "..."))  
+// 1, 2, 3, 4, 5, ...
+
+println(numbers.joinToString { "Element: ${it.uppercase()}" })  
+// Element: ONE, Element: TWO, Element: THREE, Element: FOUR
+```
+
+👉 Use **`joinToString`** when you just want a string, and **`joinTo`** when you want to append into something else.
+
+
