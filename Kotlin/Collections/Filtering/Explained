@@ -1,0 +1,39 @@
+* **Filtering** = picking elements that match a condition (predicate).
+* Predicate = lambda returning `true` (keep) or `false` (discard).
+* Original collection stays unchanged.
+
+### Main functions:
+
+```kotlin
+val numbers = listOf("one", "two", "three", "four")
+
+// Basic filter
+println(numbers.filter { it.length > 3 })  
+// [three, four]
+
+// Map filter (key + value)
+val numbersMap = mapOf("key1" to 1, "key2" to 2, "key101" to 101)
+println(numbersMap.filter { it.key.endsWith("1") && it.value > 100 })  
+// {key101=101}
+
+// filterIndexed (use index + value)
+println(numbers.filterIndexed { index, value -> index != 0 && value.length < 5 })  
+// [two, four]
+
+// filterNot (opposite)
+println(numbers.filterNot { it.length <= 3 })  
+// [three, four]
+
+// filterIsInstance (by type)
+val mixed = listOf(1, "hello", false, 'A')
+println(mixed.filterIsInstance<String>())  
+// [hello]
+
+// partition (split into match + rest)
+val (match, rest) = numbers.partition { it.length > 3 }
+println(match) // [three, four]
+println(rest)  // [one, two]
+```
+
+👉 **Use `filter` to keep what matches, `filterNot` to keep what doesn’t, `filterIndexed` when index matters, `filterIsInstance` for types, and `partition` to split into two lists.**
+
