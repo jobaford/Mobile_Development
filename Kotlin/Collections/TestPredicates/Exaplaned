@@ -1,0 +1,19 @@
+👉 **Testing predicates** = check if elements in a collection match a condition.
+
+* `any { }` → **true if at least one matches**
+* `none { }` → **true if none match**
+* `all { }` → **true if every element matches**
+
+### Example:
+
+```kotlin
+val numbers = listOf("one", "two", "three")
+
+println(numbers.any { it.endsWith("e") })   // true (one, three)
+println(numbers.none { it.endsWith("w") })  // true (none ends with w)
+println(numbers.all { it.length > 1 })      // true (all length > 1)
+```
+
+➡️ Output: `true, true, true`
+
+
