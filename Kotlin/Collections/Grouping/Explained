@@ -1,0 +1,22 @@
+👉 `groupBy` groups elements of a collection into a **map**.
+
+* The **key** comes from the lambda (e.g. first letter).
+* The **value** is the list of elements with that key.
+* With a second lambda, you can **transform values** (e.g. make them uppercase).
+
+**Example:**
+
+```kotlin
+val numbers = listOf("one", "two", "three", "four", "five")
+
+println(numbers.groupBy { it.first().uppercase() })
+// {O=[one], T=[two, three], F=[four, five]}
+
+println(numbers.groupBy(
+    keySelector = { it.first().uppercase() },
+    valueTransform = { it.uppercase() }
+))
+// {O=[ONE], T=[TWO, THREE], F=[FOUR, FIVE]}
+```
+
+👉 Use `groupBy` to easily organize data by some rule. ✅
