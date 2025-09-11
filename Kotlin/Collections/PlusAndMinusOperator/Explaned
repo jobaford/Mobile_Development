@@ -1,0 +1,19 @@
+👉 In Kotlin, `+` and `-` can add/remove elements from a collection.
+👉 They **don’t change** the original list — they return a **new list**.
+
+### Example:
+
+```kotlin
+val numbers = mutableListOf(1, 2, 3, 4)
+
+val plusList = numbers + 5               // [1, 2, 3, 4, 5]
+val minusList = numbers - listOf(3, 4)   // [1, 2]
+```
+
+➡️ Output:
+
+```
+[1, 2, 3, 4, 5]
+[1, 2]
+```
+
