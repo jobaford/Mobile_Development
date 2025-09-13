@@ -1,0 +1,31 @@
+👉 Kotlin has functions to **get parts of a collection**.
+
+* **slice** → pick elements by index/range.
+
+```kotlin
+val nums = listOf(1,2,3,4,5,6)
+println(nums.slice(1..3))       // [2,3,4]
+println(nums.slice(setOf(0,3))) // [1,4]
+```
+
+* **take / takeLast** → first or last N elements.
+
+* **drop / dropLast** → remove first or last N elements.
+
+* **takeWhile / dropWhile** → keep/remove elements until condition fails.
+
+* **chunked(n)** → split list into pieces of size `n`.
+
+```kotlin
+println((0..7).toList().chunked(3)) // [[0,1,2],[3,4,5],[6,7]]
+```
+
+* **windowed(n)** → sliding window of size `n`.
+
+```kotlin
+println((1..5).toList().windowed(3)) // [[1,2,3],[2,3,4],[3,4,5]]
+```
+
+👉 Use these to **slice, split, or group** your collections easily. ✅
+
+
