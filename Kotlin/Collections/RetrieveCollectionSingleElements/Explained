@@ -1,0 +1,36 @@
+👉 Ways to get **single elements** in Kotlin:
+
+* **By index**:
+
+```kotlin
+numbers.elementAt(3) // 4
+```
+
+* **First & Last**:
+
+```kotlin
+numbers.first() // 1
+numbers.last()  // 5
+```
+
+* **By condition**:
+
+```kotlin
+numbers.first { it > 3 }  // 4
+numbers.last { it > 3 }   // 5
+```
+
+* **Random element**:
+
+```kotlin
+numbers.random() // e.g., 2
+```
+
+* **Check empty**:
+
+```kotlin
+numbers.isEmpty() // false
+```
+
+👉 Use these to **pick specific items** from a list. ✅
+
