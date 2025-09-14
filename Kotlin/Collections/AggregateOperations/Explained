@@ -1,0 +1,28 @@
+👉 **Aggregate functions** in Kotlin return a **single value** from a collection:
+
+* `minOrNull()` → smallest element (or null if empty)
+* `maxOrNull()` → largest element (or null if empty)
+* `average()` → average of numbers
+* `sum()` → total sum of numbers
+* `count()` → number of elements
+
+Example:
+
+```kotlin
+val numbers = listOf(6, 6, 10, 14, 4, 100)
+
+println("Sum = ${numbers.sum()}")       // 140
+println("Count = ${numbers.count()}")   // 6
+println("Average = ${numbers.average()}") // 23.33...
+println("Max = ${numbers.maxOrNull()}") // 100
+println("Min = ${numbers.minOrNull()}") // 4
+```
+
+👉 Advanced:
+
+```kotlin
+println(numbers.sumOf { it * 2 }) // multiplies each by 2, then sums → 280
+```
+
+✅ Use these when you need quick stats about your collection.
+
