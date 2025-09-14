@@ -1,0 +1,22 @@
+* `sorted()` sorts by **natural order**. Works if element type implements **`Comparable`** (has `compareTo`).
+* To define natural order in your class: implement `Comparable<T>` and override `compareTo(other): Int` (negative/0/positive).
+* Use **`Comparator`** to sort by different rules without changing the class: implement `Comparator<T>` with `compare(a,b): Int`.
+* Kotlin convenience (recommended):
+
+  * `list.sortedBy { it.property }` — sort ascending by a property.
+  * `list.sortedByDescending { it.property }` — descending.
+  * `list.sortedWith(compareBy({ it.key1 }, { it.key2 }))` or `list.sortedBy { it.key1 }.thenBy { it.key2 }` — multi-key sort.
+
+Very short examples:
+
+```kotlin
+data class Laptop(val brand:String, val year:Int, val ram:Int, val price:Int)
+
+// simple: sort by price
+laptops.sortedBy { it.price }
+
+// multi-key: year then price
+laptops.sortedWith(compareBy<Laptop> { it.year }.thenBy { it.price })
+```
+
+Use `Comparable` when a single natural order makes sense; use `sortedBy`/`sortedWith` for flexible, readable sorting.
