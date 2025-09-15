@@ -1,0 +1,26 @@
+🔎 **Linear Search**
+
+* Goes one by one through the list until it finds the element.
+* Slow for big lists. Example: finding 27 in `[1..30]` takes 27 steps.
+
+---
+
+⚡ **Binary Search**
+
+* Works only on **sorted lists**.
+* Repeatedly checks the **middle** element, then cuts the search space in half.
+* Much faster — e.g., finding 27 in `[1..30]` takes only 3 steps.
+
+---
+
+✅ In Kotlin you don’t need to code it yourself:
+
+```kotlin
+val numbers = (1..30).toList()
+println(numbers.binarySearch(27)) // prints 26 (index of 27)
+```
+
+👉 Binary search is way faster than linear search for big sorted lists.
+
+---
+
