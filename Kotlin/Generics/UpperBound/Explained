@@ -1,0 +1,41 @@
+🔹 **Upper bounds** = rules for what a generic type `T` must be.
+
+* By default, `T` can be *any* type.
+* You can force it to **extend a class** AND **implement an interface**.
+
+---
+
+### Example
+
+```kotlin
+open class Player(val name: String)
+
+interface Listener {
+    fun listen()
+}
+
+class FootballPlayer(name: String) : Player(name), Listener {
+    override fun listen() = println("$name is listening")
+}
+
+// Class with 2 bounds
+class Team<T>(val members: List<T>) where T : Player, T : Listener
+```
+
+✅ `FootballPlayer` works (inherits `Player` + implements `Listener`).
+❌ A type that only extends `Player` but not `Listener` won’t work.
+
+---
+
+👉 You can also do the same with functions:
+
+```kotlin
+fun <T> addPlayer(player: T) where T : Player, T : Listener {
+    println("${player.name} added")
+}
+```
+
+---
+
+⚡ In short: `where T : Player, T : Listener` = type must be **both** a `Player` and a `Listener`.
+
