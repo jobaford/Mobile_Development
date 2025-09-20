@@ -27,3 +27,7 @@ open class Player(val name: String)
 
 class FootballPlayer(name: String): Player(name)
 class BaseballPlayer(name: String): Player(name)
+
+//output:
+
+//Player: Football player 2 was added in the team Football team
