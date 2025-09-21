@@ -1,0 +1,30 @@
+### Covariance (`out`)
+
+* Means a generic can accept a type **and its subclasses**.
+* Example: `Team<out Player>` can use `FootballPlayer`, `BasketballPlayer`, etc.
+* Think: **"read-only, more flexible downwards"**.
+
+---
+
+### Contravariance (`in`)
+
+* Means a generic can accept a type **and its supertypes**.
+* Example: `Team<in CounterStrikePlayer>` can take `CounterStrikePlayer` or `GamesPlayer`.
+* Think: **"write-only, more flexible upwards"**.
+
+---
+
+### Invariance (default)
+
+* No flexibility. Must match the type exactly.
+* Example: `Team<Player>` only works with `Player`, not `FootballPlayer`.
+
+---
+
+🔑 **Shortcut memory tip:**
+
+* **`out` = covariant = subclasses allowed (go *down* the tree)**.
+* **`in` = contravariant = supertypes allowed (go *up* the tree)**.
+
+---
+
