@@ -1,0 +1,33 @@
+### Type Erasure
+
+* Generics in Kotlin only exist at **compile time**.
+* At **runtime**, the JVM only sees `List`, not `List<Int>` or `List<String>`.
+* That’s why you can’t normally check `if (element is T)`.
+
+---
+
+### Reified + Inline
+
+* `reified` keeps the generic type info **at runtime**.
+* Works only inside an `inline` function.
+* This lets you do things like:
+
+```kotlin
+inline fun <reified T> getSpecificTypes(list: List<Any>): List<T> {
+    return list.filterIsInstance<T>()
+}
+```
+
+* Now you can safely check types:
+
+```kotlin
+val numbers = getSpecificTypes<Int>(mixedList)   // gets only Ints
+val chars = getSpecificTypes<Char>(mixedList)   // gets only Chars
+```
+
+---
+
+✅ **Shortcut memory tip:**
+
+* **Without reified** → type info erased at runtime.
+* **With reified** → type survives → you can check it at runtime.
