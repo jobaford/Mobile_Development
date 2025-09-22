@@ -1,0 +1,52 @@
+### Upper bounds
+
+* A generic type `T` can be forced to extend/implement certain classes or interfaces.
+* By default you can give **one upper bound** directly:
+
+```kotlin
+class Team<T : Player>
+```
+
+* To use **more than one upper bound**, you write them with `where`:
+
+```kotlin
+class Team<T>(val players: List<T>)
+    where T : Player, T : Listener
+```
+
+---
+
+### Example
+
+```kotlin
+open class Player(val name: String)
+interface Listener { fun listen() }
+
+class FootballPlayer(name: String) : Player(name), Listener {
+    override fun listen() = println("$name is listening")
+}
+```
+
+✅ `Team<FootballPlayer>` works (inherits `Player` + implements `Listener`).
+❌ `Team<CounterStrikePlayer>` fails if it doesn’t implement `Listener`.
+
+---
+
+### For functions
+
+Same rule:
+
+```kotlin
+fun <T> addPlayer(player: T)
+    where T : Player, T : Listener {
+    // ...
+}
+```
+
+---
+
+🔑 **Memory tip:**
+
+* **One upper bound** → `T : Player`
+* **Multiple upper bounds** → `where T : Player, T : Listener`
+
