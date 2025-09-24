@@ -1,0 +1,30 @@
+### Packages
+
+* A **package** = a folder to organize related code (classes, interfaces, etc.).
+* Example:
+
+  * `com.example.classes` → holds all your classes.
+  * `com.example.main` → holds your main function.
+
+👉 This keeps code organized and easy to find.
+
+---
+
+### Imports
+
+* To **use code from another package**, you must import it.
+
+```kotlin
+import com.example.classes.Team   // import one class
+import com.example.classes.*      // import everything from the package
+```
+
+---
+
+✅ **Memory tip**:
+
+* **Package** = drawer where code lives.
+* **Import** = pulling items from that drawer so you can use them.
+
+---
+
