@@ -1,0 +1,41 @@
+### Access Modifiers
+
+They control **who can see/use your code**.
+
+1. **public** (default) → visible everywhere.
+2. **private** → visible only in the same file (for top-level) or same class.
+3. **internal** → visible only inside the same module.
+4. **protected** → visible in the class + its subclasses (not outside).
+
+---
+
+### Examples
+
+```kotlin
+// public (default)
+fun show() {}  // anyone can use
+
+// private
+private fun hide() {}  // only in same file
+
+// internal
+internal fun insideModule() {}  // only same module
+
+// protected (inside class only)
+open class User {
+    protected var name = "Alex"
+}
+class VIP : User() {
+    fun printName() = println(name) // works
+}
+```
+
+---
+
+👉 **Memory tip**:
+
+* `public` = everyone
+* `private` = just me (file/class)
+* `internal` = only my project/module
+* `protected` = me + my kids (subclasses)
+
