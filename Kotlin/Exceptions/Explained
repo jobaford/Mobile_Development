@@ -1,0 +1,55 @@
+### What are exceptions?
+
+* **Exceptions = runtime errors** (things that go wrong while the program runs).
+* Example:
+
+  * `5 / 0` → error (can’t divide by zero).
+  * Accessing an array index that doesn’t exist → error.
+
+---
+
+### Handling exceptions
+
+Use **`try / catch`** to prevent your app from crashing:
+
+```kotlin
+try {
+    val result = 5 / 0
+} catch (e: ArithmeticException) {
+    println("You can't divide by 0: ${e.message}")
+}
+```
+
+---
+
+### `finally` block
+
+* Runs **no matter what** (error or no error).
+* Good for cleanup code (closing files, databases, etc.).
+
+---
+
+### `try / catch` as an expression
+
+* Can return a value directly:
+
+```kotlin
+val result = try {
+    5 / 0
+} catch (e: ArithmeticException) {
+    0
+}
+println(result) // 0
+```
+
+---
+
+✅ **Summary**:
+
+* **Exception** = error at runtime.
+* **try / catch** = handle errors safely.
+* **finally** = always runs.
+* **try / catch as expression** = returns a value.
+
+---
+
