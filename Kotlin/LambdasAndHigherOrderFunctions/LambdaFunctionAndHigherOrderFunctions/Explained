@@ -1,0 +1,63 @@
+### Higher-Order Functions
+
+* A function that **takes another function as a parameter** or **returns a function**.
+
+```kotlin
+fun operate(x: Int, action: (Int) -> Unit) {
+    action(x)
+}
+```
+
+---
+
+### Lambdas
+
+* **Anonymous functions** (functions without a name).
+* Syntax: `{ params -> body }`
+
+```kotlin
+val add: (Int, Int) -> Unit = { a, b -> println("$a + $b = ${a + b}") }
+add(8, 9) // Outputs: 8 + 9 = 17
+```
+
+---
+
+### Using Lambda as Parameter
+
+```kotlin
+fun doSomething(a: Int, b: Int, action: (Int) -> Unit) {
+    action(a + b)
+}
+
+doSomething(5, 10) { result -> 
+    println(result) // Outputs 15
+}
+```
+
+* If the **lambda is the last parameter**, you can put it **outside the parentheses**.
+
+---
+
+### Replacing Object Expressions
+
+* Instead of creating an **anonymous class**, you can pass a lambda directly:
+
+```kotlin
+val loginButton = Button("Login") {
+    // code to login user
+}
+
+val signupButton = Button("SignUp") {
+    // code to sign up user
+}
+```
+
+---
+
+✅ **Summary**:
+
+* **Lambda** = unnamed function.
+* **Higher-order function** = accepts/returns functions.
+* **Last lambda parameter** can go outside parentheses.
+* Lambdas **simplify code** compared to anonymous classes.
+
