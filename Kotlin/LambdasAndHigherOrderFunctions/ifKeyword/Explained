@@ -1,0 +1,27 @@
+### `it` in Lambdas
+
+* If a lambda has **only one parameter**, Kotlin gives it the **implicit name** `it`.
+* You don’t need to name the parameter or use `->`.
+
+---
+
+### Example
+
+```kotlin
+val myFunction: (String) -> String = { it.uppercase() }
+println(myFunction("hello")) // HELLO
+```
+
+✅ Same as writing:
+
+```kotlin
+{ s: String -> s.uppercase() }
+```
+
+---
+
+👉 **Summary**:
+
+* **One parameter lambda** → you can use **`it`** instead of naming it.
+* Makes code shorter and cleaner.
+
