@@ -1,0 +1,39 @@
+### What is a thread?
+
+* A **thread** = a path of execution inside a program.
+* Every program has a **main thread** that runs code line by line.
+
+---
+
+### Why more threads?
+
+* If one task is slow (like loading data), it **blocks the main thread**.
+* Adding another thread lets that work run in the background while the main thread keeps going.
+
+---
+
+### Example
+
+```kotlin
+Thread.sleep(5000) // main thread waits 5 sec
+```
+
+Blocks everything.
+
+```kotlin
+Thread {
+    Thread.sleep(5000)
+    println("Thread 2 finished")
+}.start()
+```
+
+Runs in **another thread**, so main thread isn’t blocked.
+
+---
+
+👉 **Analogy**:
+
+* Main thread = one road.
+* If one car stops, all cars stop.
+* Extra thread = a second road so traffic keeps moving.
+
