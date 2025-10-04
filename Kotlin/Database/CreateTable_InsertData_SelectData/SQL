@@ -1,0 +1,55 @@
+Here’s the **short and simple** version 👇
+
+---
+
+### 🧱 Create a Table
+
+You make a table in SQLite using:
+
+```sql
+CREATE TABLE books (
+  id INTEGER PRIMARY KEY,
+  author TEXT,
+  title TEXT
+);
+```
+
+* `id` = unique number for each row
+* `TEXT` = stores words or names
+
+---
+
+### ✏️ Add Data
+
+You add rows using `INSERT INTO`:
+
+```sql
+INSERT INTO books (id, author, title)
+VALUES (1, "Fyodor Dostoevsky", "The Idiot");
+```
+
+If you skip the `id`, SQLite adds it automatically:
+
+```sql
+INSERT INTO books (author, title)
+VALUES ("Lev Tolstoy", "Anna Karenina");
+```
+
+---
+
+### 👀 View Data
+
+To see all rows:
+
+```sql
+SELECT * FROM books;
+```
+
+---
+
+✅ **Summary:**
+
+* `CREATE TABLE` → make table
+* `INSERT INTO` → add data
+* `SELECT * FROM` → show data
+* `INTEGER PRIMARY KEY` → auto-increment unique ID
