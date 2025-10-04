@@ -1,0 +1,26 @@
+### 🔗 What a JOIN Does
+
+A **JOIN** combines data from **two or more tables** using a shared column — usually an **ID**.
+
+---
+
+### 🧱 Example
+
+We have two tables:
+
+* `books` → stores book info
+* `reviews` → stores reviews linked by `book_id`
+
+To connect them:
+
+```sql
+SELECT books.title, reviews.review, reviews.name
+FROM books
+JOIN reviews
+ON books.id = reviews.book_id;
+```
+
+---
+
+✅ **Result:**
+Shows each book’s title, the review text, and the reviewer’s name — all in one table.
