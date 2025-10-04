@@ -1,0 +1,34 @@
+### 🔍 Filtering and Sorting Data
+
+**Goal:** Find exercises based on calories and time.
+
+---
+
+### 🧠 Example
+
+```sql
+SELECT * FROM exercise_logs
+WHERE calories > 50
+ORDER BY calories ASC;
+```
+
+➡ Shows exercises burning more than 50 calories (smallest to largest).
+
+---
+
+### 🧩 Combine Conditions
+
+```sql
+SELECT * FROM exercise_logs
+WHERE calories > 50 AND minutes < 30
+ORDER BY calories ASC;
+```
+
+➡ Shows exercises that burn **over 50 calories** **and** take **less than 30 minutes**.
+
+---
+
+✅ **Keywords:**
+
+* `ORDER BY` → sorts results
+* `AND` → combines multiple conditions
