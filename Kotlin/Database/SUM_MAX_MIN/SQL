@@ -1,0 +1,23 @@
+### 📊 Aggregate Functions
+
+Aggregate functions do math on table data.
+
+Example table: **groceries** (id, name, quantity)
+
+---
+
+### 🧮 Examples
+
+```sql
+SELECT SUM(quantity) FROM groceries;   -- adds all quantities (total)
+SELECT MAX(quantity) FROM groceries;   -- finds the largest value
+SELECT MIN(quantity) FROM groceries;   -- finds the smallest value
+```
+
+---
+
+✅ **Result:**
+
+* `SUM` → total items
+* `MAX` → highest quantity
+* `MIN` → lowest quantity
