@@ -1,0 +1,34 @@
+### ✏️ Update Data
+
+Use `UPDATE` to change a value:
+
+```sql
+UPDATE books
+SET author = "Fyodor Dostoyevsky"
+WHERE id = 1;
+```
+
+* `SET` → what to change
+* `WHERE` → which row (important!)
+  Without `WHERE`, **all rows** update.
+
+---
+
+### 🗑️ Delete Data
+
+Use `DELETE` to remove a row:
+
+```sql
+DELETE FROM books
+WHERE id = 2;
+```
+
+Without `WHERE`, **everything** gets deleted.
+
+---
+
+✅ **Summary:**
+
+* `UPDATE` → change data
+* `DELETE` → remove data
+* Always use `WHERE` to target one row
