@@ -1,0 +1,31 @@
+### 🧠 What’s Happening
+
+1. **Main Thread:**
+   The `main()` code runs on the main thread — that’s the default.
+
+2. **Thread.sleep:**
+   Makes the thread pause (like waiting 2 seconds). This blocks everything else.
+
+3. **Background Thread:**
+   You can move slow work to a background thread using `Thread { ... }`.
+   That way, the main thread keeps running while the background thread works.
+
+4. **Parallel Execution:**
+   The main and background threads run at the same time (concurrently).
+
+5. **Coroutines:**
+   Coroutines do the same thing more efficiently — they run tasks **without blocking** the main thread.
+
+6. **Delay vs. Sleep:**
+
+   * `Thread.sleep()` pauses the whole thread.
+   * `delay()` only pauses that coroutine (others keep running).
+
+7. **Job & join():**
+   A `Job` lets you control a coroutine.
+   Using `job.join()` tells the program to **wait** until the coroutine finishes.
+
+---
+
+✅ **In short:**
+Threads and coroutines let your program do background work **without freezing**, but coroutines are **lighter, faster, and smarter** at managing that work.
