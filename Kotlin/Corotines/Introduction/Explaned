@@ -1,3 +1,5 @@
+in new project select Gradle then Kotlin
+
 ### ⚙️ What Are Coroutines?
 
 Coroutines let your app **do long tasks (like downloads or database work)** without freezing the screen.
