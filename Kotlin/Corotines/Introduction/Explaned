@@ -1,0 +1,17 @@
+### ⚙️ What Are Coroutines?
+
+Coroutines let your app **do long tasks (like downloads or database work)** without freezing the screen.
+
+---
+
+### 🧠 How It Works
+
+* Apps run on the **main thread** (handles quick tasks like UI updates).
+* **Heavy tasks** can block it and make the app freeze.
+* **Threads** can help, but too many threads use too much memory.
+* **Coroutines** fix this by letting **many tasks share one thread** efficiently.
+
+---
+
+✅ **In short:**
+Coroutines are lightweight, efficient background workers that run long tasks **without blocking** the main thread. 
