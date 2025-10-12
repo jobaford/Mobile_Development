@@ -1,0 +1,35 @@
+### 🧱 Coroutine Builders
+
+They are tools used to **create coroutines**.
+The main ones are:
+
+* **`launch`** → starts a coroutine that doesn’t return a value.
+* **`async`** → starts a coroutine that returns a value.
+* **`runBlocking`** → blocks the main thread until it finishes (used for testing).
+
+---
+
+### 💤 Suspending Functions
+
+Functions marked with `suspend` can **pause and resume** without blocking threads (used inside coroutines).
+
+---
+
+### ⚙️ How It Works
+
+* `launch` coroutines run **in parallel** and don’t block each other.
+* You can use `job.join()` to make them run **one after another**.
+* `async` coroutines return results using `.await()`.
+* `invokeOnCompletion` runs code after all coroutines finish.
+
+---
+
+### 🌍 Global Scope
+
+* **Local scope:** coroutine ends when the screen/activity ends.
+* **Global scope:** keeps running even if the screen is closed (used for background tasks like music or downloads).
+
+---
+
+✅ **In short:**
+`launch` runs tasks, `async` gets results, `suspend` lets tasks pause, and `globalScope` keeps work running in the background.
