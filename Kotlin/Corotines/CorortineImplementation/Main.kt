@@ -20,13 +20,16 @@ fun main() {//executed on the main thread
     // with Coroutine:
     println("Main program strats: ${Thread.currentThread().name}")
 
+    
     val parentJob = CoroutineScope(Dispatchers.Default).launch {
         println("Fake work strats: ${Thread.currentThread().name}")
         delay(2000L) //pretending to do some work
         println("Fake work finished: ${Thread.currentThread().name}")
     }
-    runBlocking {
-        parentJob.join()
+
+    //Without runBlocking, the program would likely end before the coroutine completes, because the main thread would exit early.
+    runBlocking {// This blocks the main thread until everything inside its block finishes.
+        parentJob.join()// Wait for the coroutine to finish its work.
     }
 
     println("Mian program ends: ${Thread.currentThread().name}")
