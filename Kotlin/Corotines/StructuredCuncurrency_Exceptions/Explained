@@ -1,0 +1,57 @@
+### ⚙️ Throwing Exceptions in Coroutines
+
+* You can **throw exceptions** inside coroutines (e.g., `throw Exception("Error message")`).
+* If one coroutine throws an exception, it can **cancel other coroutines** in the same scope and cause the **parent to fail**.
+
+---
+
+### 🧱 Handling Exceptions
+
+1. **Try-Catch:**
+   Wrap code in `try...catch` to stop one coroutine’s error from crashing others.
+
+   ```kotlin
+   try {
+       // risky code
+   } catch (e: Exception) {
+       println("Exception caught safely: ${e.message}")
+   } finally {
+       println("Resources closed safely")
+   }
+   ```
+
+   But using many `try...catch` blocks gets messy.
+
+2. **CoroutineExceptionHandler + SupervisorScope:**
+
+   * Define a **handler** to catch errors from any child coroutine.
+   * Use **`supervisorScope`** so one child’s error doesn’t affect others or the parent.
+
+   ```kotlin
+   val handler = CoroutineExceptionHandler { _, e ->
+       println("Error in one of the children: ${e.message}")
+   }
+
+   CoroutineScope(handler).launch {
+       supervisorScope {
+           // child coroutines here
+       }
+   }
+   ```
+
+   ✅ Other coroutines keep running even if one fails.
+   ✅ Parent remains successful.
+
+---
+
+### 🚫 CancellationException
+
+* A special exception type (`CancellationException`) that **stops one coroutine**
+  but **doesn’t affect** others or the parent.
+
+---
+
+**In short:**
+Use `try...catch` for single coroutines,
+use `CoroutineExceptionHandler + supervisorScope` for many,
+and `CancellationException` for safe cancellation without breaking others.
