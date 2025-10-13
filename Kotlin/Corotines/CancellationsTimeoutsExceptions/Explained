@@ -1,0 +1,27 @@
+### 🛑 Cancellation
+
+* You cancel a coroutine when it takes too long or you no longer need the result.
+* To be **cancelable**, it must use functions from `kotlinx.coroutines` (like `delay`).
+* If it uses non-cooperative code (like `Thread.sleep`), it **can’t be canceled**.
+* Use `job.cancel()` to stop it, or `job.cancelAndJoin()` to stop and wait for it to end.
+* `isActive` checks if the coroutine is still running.
+
+---
+
+### ⚠️ Exceptions
+
+* Canceling a coroutine throws a `CancellationException`.
+* You can catch it with `try...catch` and add a custom message.
+* Example: `cancel(CancellationException("My error message"))`.
+
+---
+
+### ⏱️ Timeouts
+
+* `withTimeout(ms)` cancels if it runs longer than the given time → **throws an error**.
+* `withTimeoutOrNull(ms)` cancels if it’s too long → **returns null instead of error**.
+
+---
+
+✅ **In short:**
+Coroutines can be canceled, throw exceptions when stopped, and use timeouts to auto-cancel if they take too long.
